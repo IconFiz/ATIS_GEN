@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATIS Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>ATIS Generator</h1>
+        <form id="atisForm">
+            <div class="form-section">
+                <h2>Basic Information</h2>
+                <div class="form-group">
+                    <label for="discordUsername">Discord Username:</label>
+                    <input type="text" id="discordUsername" required placeholder="e.g., username">
+                </div>
+                <div class="form-group">
+                    <label for="icao">Airport ICAO Code:</label>
+                    <input type="text" id="icao" required placeholder="e.g., KJFK, EGLL">
+                </div>
+                <div class="form-group">
+                    <label for="atisLetter">ATIS Letter Identifier:</label>
+                    <select id="atisLetter" required>
+                        <option value="Alpha">Alpha</option>
+                        <option value="Bravo">Bravo</option>
+                        <option value="Charlie">Charlie</option>
+                        <option value="Delta">Delta</option>
+                        <option value="Echo">Echo</option>
+                        <option value="Foxtrot">Foxtrot</option>
+                        <option value="Golf">Golf</option>
+                        <option value="Hotel">Hotel</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="time">Time (UTC):</label>
+                    <input type="time" id="time" required readonly>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Weather & Runway Conditions</h2>
+                <div class="form-group">
+                    <label for="wind">Wind Direction & Speed:</label>
+                    <input type="text" id="wind" required placeholder="e.g., 250° at 10 knots">
+                </div>
+                <div class="form-group">
+                    <label for="visibility">Visibility:</label>
+                    <input type="text" id="visibility" required placeholder="e.g., 10 statute miles">
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Runway & Operational Information</h2>
+                <div class="form-group">
+                    <label for="departureRunway">Departure Runway:</label>
+                    <input type="text" id="departureRunway" required placeholder="e.g., RWY 25L">
+                </div>
+                <div class="form-group">
+                    <label for="arrivalRunway">Arrival Runway:</label>
+                    <input type="text" id="arrivalRunway" required placeholder="e.g., RWY 25R">
+                </div>
+                <div class="form-group">
+                    <label for="approach">Approach Type:</label>
+                    <select id="approach" required>
+                        <option value="ILS">ILS</option>
+                        <option value="RNAV">RNAV</option>
+                        <option value="VOR">VOR</option>
+                        <option value="Visual">Visual Approach</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="notams">NOTAMs/Special Instructions:</label>
+                    <textarea id="notams" placeholder="e.g., Taxiway Bravo closed"></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="generate-btn">Generate ATIS</button>
+        </form>
+
+        <div class="output-section">
+            <h2>Generated ATIS</h2>
+            <div id="atisOutput" class="atis-output"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

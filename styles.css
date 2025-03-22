@@ -1,0 +1,266 @@
+:root {
+    --bg-color: #000000;
+    --text-color: #ffffff;
+    --input-bg: #1a1a1a;
+    --input-border: #333333;
+    --section-bg: #111111;
+    --accent-color: #ffffff;
+    --hover-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+    --gradient-start: rgba(255, 255, 255, 0.03);
+    --gradient-end: rgba(255, 255, 255, 0.01);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+    font-size: 2.5rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    border-radius: 2px;
+}
+
+.form-section {
+    background-color: var(--section-bg);
+    padding: 1.5rem;
+    border-radius: 16px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    border: 1px solid var(--input-border);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.form-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.form-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px var(--shadow-color);
+}
+
+.form-section:hover::before {
+    opacity: 1;
+}
+
+h2 {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 400;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background-color: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 12px;
+    color: var(--text-color);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+input:hover, select:hover, textarea:hover {
+    border-color: var(--accent-color);
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+input[readonly] {
+    background-color: #1a1a1a;
+    cursor: not-allowed;
+}
+
+textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.generate-btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.generate-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.generate-btn:hover {
+    background-color: var(--hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.generate-btn:hover::before {
+    opacity: 1;
+}
+
+.generate-btn:active {
+    transform: translateY(0);
+}
+
+.output-section {
+    margin-top: 1.5rem;
+    background-color: var(--section-bg);
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px var(--shadow-color);
+    border: 1px solid var(--input-border);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.output-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.output-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px var(--shadow-color);
+}
+
+.output-section:hover::before {
+    opacity: 1;
+}
+
+.atis-output {
+    font-family: 'SF Mono', 'Consolas', 'Monaco', monospace;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    padding: 1.5rem;
+    background-color: var(--input-bg);
+    border-radius: 12px;
+    white-space: pre-wrap;
+    margin-top: 1rem;
+    border: 1px solid var(--input-border);
+    letter-spacing: 0.2px;
+    transition: all 0.3s ease;
+}
+
+.atis-output:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 1rem 0;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .form-section {
+        padding: 1.25rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .atis-output {
+        font-size: 1rem;
+        padding: 1.25rem;
+    }
+}
